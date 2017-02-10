@@ -54,11 +54,11 @@ namespace gr {
     {
 	gr_complex ai=0;
 	// estimates the amplitude imbalance by meassuring the expansion or the contraction of the outer points of the constellation
-	real(ai)= real(di[decimal_right_up]) + real(di[decimal_right_down])-real(di[decimal_left_down])-real(di[decimal_left_up]) ;
-        imag(ai)= imag(di[decimal_right_up]) - imag(di[decimal_right_down])-imag(di[decimal_left_down])+imag(di[decimal_left_up]) ;	
+	ai.real(di[decimal_right_up].real() + di[decimal_right_down].real()-di[decimal_left_down].real()-di[decimal_left_up].real()) ;
+        ai.imag(di[decimal_right_up].imag() - di[decimal_right_down].imag()-di[decimal_left_down].imag()+di[decimal_left_up].imag()) ;	
 	// divide by 4 because we estimate using the 4 outer points of the constellation
-	real(ai)= real(ai)/4/real(point_right_up);
-	imag(ai)= imag(ai)/4/imag(point_right_up);
+	ai.real(ai.real()/4/point_right_up.real());
+	ai.imag(ai.imag()/4/point_right_up.imag());
         return ai;
     }
 

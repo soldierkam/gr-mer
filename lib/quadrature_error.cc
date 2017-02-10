@@ -51,10 +51,10 @@ namespace gr {
     {
 	gr_complex qe_aux=0;
 	// angles estimation
-	real(qe_aux)= (real(di[d_decimal_right_up])-real(di[d_decimal_right_down]))/2;
-	imag(qe_aux)= (imag(di[d_decimal_right_up])-imag(di[d_decimal_left_up]))/2;
-	angleh = atan(imag(qe_aux)/real(d_point_right_up));	
-	anglev = atan(real(qe_aux)/imag(d_point_right_up));	
+	qe_aux.real((di[d_decimal_right_up].real()-di[d_decimal_right_down].real())/2);
+	qe_aux.imag((di[d_decimal_right_up].imag()-di[d_decimal_left_up].imag())/2);
+	angleh = atan(qe_aux.imag()/d_point_right_up.real());	
+	anglev = atan(qe_aux.real()/d_point_right_up.imag());	
     }
   } /* namespace mer */
 } /* namespace gr */

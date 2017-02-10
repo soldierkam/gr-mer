@@ -55,8 +55,8 @@ namespace gr {
     {
 		double d=0;
 		if (iq==iq){
-			real(d_di[constellation_value]) = real(iq-iq_true)*d_alpha +(1-d_alpha)* real(d_di[constellation_value]);
-			imag(d_di[constellation_value]) = imag(iq-iq_true)*d_alpha +(1-d_alpha)* imag(d_di[constellation_value]);
+			d_di[constellation_value].real((iq-iq_true).real()*d_alpha +(1-d_alpha)* d_di[constellation_value].real());
+			d_di[constellation_value].imag((iq-iq_true).imag()*d_alpha +(1-d_alpha)* d_di[constellation_value].imag());
 		}
 		return d_di;
     }

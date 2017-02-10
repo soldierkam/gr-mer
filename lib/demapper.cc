@@ -31,6 +31,7 @@
 #include <stdexcept>
 #include<stdlib.h>
 #include <cstdio>
+#include <gnuradio/digital/constellation.h>
 
 namespace gr {
   namespace mer {
@@ -272,8 +273,8 @@ namespace gr {
  	gr_complex
     	demapper::left_down_contellation(int &decimal_point){
 		gr_complex aux=0; 
-		real(aux) = d_re_min;
-		imag(aux) = d_im_min; 	
+		aux.real(d_re_min);
+		aux.imag(d_im_min); 	
 		decimal_point = demap(aux);	
 		return aux;
    	}
@@ -282,8 +283,8 @@ namespace gr {
     	gr_complex
     	demapper::right_down_contellation(int &decimal_point){
 		gr_complex aux=0; 
-		real(aux) = d_re_max;
-		imag(aux) = d_im_min;
+		aux.real(d_re_max);
+		aux.imag(d_im_min);
 		decimal_point = demap(aux);	 
 		return aux;   
 	}
@@ -291,16 +292,16 @@ namespace gr {
     	gr_complex
     	demapper::right_up_contellation(int &decimal_point){
 		gr_complex aux=0; 
-		real(aux) = d_re_max;
-		imag(aux) = d_im_max; 
+		aux.real(d_re_max);
+		aux.imag(d_im_max); 
 		decimal_point = demap(aux);	
 		return aux;
    	}
     	gr_complex
     	demapper::left_up_contellation(int &decimal_point){
 		gr_complex aux=0; 
-		real(aux) = d_re_min;
-		imag(aux) = d_im_max; 
+		aux.real(d_re_min);
+		aux.imag(d_im_max); 
 		decimal_point = demap(aux);	
 		return aux;
    	}
